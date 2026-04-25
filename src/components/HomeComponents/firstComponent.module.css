@@ -1,0 +1,164 @@
+.photoBackground {
+  background-image: url("./../../assets/BgImage.png");
+  width: 100%;
+  height: 700px;
+  margin-top: 100px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+.overlay {
+  width: 100%;
+  height: 700px;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0 20px;
+  box-sizing: border-box;
+}
+
+.title {
+  margin: 0;
+  padding: 0;
+  width: 500px;
+  color: white;
+  text-align: center;
+  font-size: 34px;
+  font-weight: 600;
+}
+
+.txt {
+  color: rgba(255, 255, 255, 0.74);
+  font-size: 31px;
+  width: 700px;
+  text-align: center;
+  margin-top: 10px;
+}
+
+.filterContainer {
+  width: 700px;
+  height: auto;
+  padding: 20px;
+  background-color: rgba(204, 220, 225, 0.3);
+  border-radius: 40px;
+  margin-top: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 20px;
+  position: relative;
+  flex-wrap: wrap;
+}
+
+.filter {
+  position: relative;
+  width: 200px; /* Equal width for all dropdowns */
+  height: 50px;
+  background-color: white;
+  border-radius: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 12px;
+  cursor: pointer;
+}
+
+.filterTxt {
+  color: grey;
+  font-weight: bold;
+  font-size: 14px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.searchBtn {
+  width: 45px;
+  height: 45px;
+  background-color: #395fa0;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+/* Dropdown styles */
+.dropdown {
+  position: absolute;
+  top: 55px;
+  left: 0;
+  background-color: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  width: 100%;
+  z-index: 100;
+}
+
+.dropdownItem {
+  padding: 10px 14px;
+  font-size: 14px;
+  color: #333;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.dropdownItem:hover {
+  background-color: #f0f0f0;
+}
+
+/* Responsive Media Queries */
+
+/* Desktop ≤1440px */
+@media (max-width: 1440px) {
+  .photoBackground { height: 650px; }
+  .overlay { height: 650px; }
+  .title { width: 80%; font-size: 30px; }
+  .txt { width: 80%; font-size: 26px; }
+  .filterContainer { width: 80%; margin-top: 80px; }
+}
+
+/* Laptop / Tablet ≤1024px */
+@media (max-width: 1024px) {
+  .photoBackground { height: 500px; background-attachment: scroll; }
+  .overlay { height: 500px; padding: 0 20px; }
+  .title { width: 90%; font-size: 26px; }
+  .txt { width: 90%; font-size: 22px; }
+  .filterContainer { width: 90%; gap: 15px; padding: 15px; margin-top: 60px; }
+  .filter { width: 160px; height: 45px; padding: 0 10px; }
+  .filterTxt { font-size: 13px; }
+  .searchBtn { width: 40px; height: 40px; }
+  .dropdown { top: 50px; }
+  .dropdownItem { font-size: 13px; padding: 8px 12px; }
+}
+
+/* Tablet Portrait ≤768px */
+@media (max-width: 768px) {
+  .photoBackground { height: 400px; }
+  .overlay { height: 400px; }
+  .title { width: 95%; font-size: 22px; }
+  .txt { width: 95%; font-size: 18px; }
+  .filterContainer { width: 100%; flex-direction: column; align-items: stretch; padding: 10px; margin-top: 40px; gap: 10px; }
+  .filter { width: 100%; height: 45px; }
+  .filterTxt { font-size: 14px; }
+  .searchBtn { width: 45px; height: 45px; align-self: center; margin-top: 10px; }
+  .dropdown { width: 100%; top: 48px; }
+}
+
+/* Mobile ≤480px */
+@media (max-width: 480px) {
+  .photoBackground { height: 400px;margin-top: 155px }
+  .overlay { height: 400px; }
+  .title { font-size: 20px; }
+  .txt { font-size: 16px; }
+  .filterContainer { gap: 8px; width: 70% }
+  .filter { height: 40px; width: 90%}
+  .filterTxt { font-size: 13px; }
+  .searchBtn { width: 40px; height: 40px; }
+  .dropdown { top: 45px; }
+}

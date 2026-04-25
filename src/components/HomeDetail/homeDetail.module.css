@@ -1,0 +1,253 @@
+.container {
+  font-family: "Segoe UI", sans-serif;
+  background-color: #f9f9fb;
+  /*padding-bottom: 60px;*/
+  box-sizing: border-box;
+}
+
+.detailContainer {
+  padding: 0 40px;
+  width: 100%;
+  margin-top: 100px;
+}
+
+.carousel {
+  flex: 1;
+  min-width: 400px;
+}
+
+.homeImage {
+  width: 100%;
+  height: 500px;
+  object-fit: cover;
+  border-radius: 16px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+.slide {
+  padding: 10px;
+}
+.topSection {
+  display: flex;
+  gap: 30px;
+  flex-wrap: wrap;
+  width: 100%;
+  justify-content: center;
+}
+
+.infoBlock {
+  flex: 1;
+  min-width: 400px;
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+}
+
+.title {
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.price {
+  font-size: 24px;
+  color: #2ecc71;
+  font-weight: 600;
+  margin-top: 10px;
+}
+
+.description {
+  font-size: 18px;
+  line-height: 1.6;
+  color: #555;
+}
+
+.details {
+  background: #ffffff;
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
+  margin-top: 50px;
+  width: 90%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  font-size: 16px;
+  color: #333;
+  gap: 16px;
+}
+
+.detailItem {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 0;
+}
+
+.icon {
+  color: #555;
+  font-size: 18px;
+  min-width: 22px;
+}
+
+.hotHomesSection {
+  margin-top: 60px;
+  width: 100%;
+}
+
+.hotHomesSection h3 {
+  font-size: 28px;
+  margin-bottom: 20px;
+  text-align: center;
+  color: #222;
+}
+
+.hotHomesGrid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 24px;
+  margin-bottom: 30px;
+}
+
+/* Loading */
+.loading {
+  text-align: center;
+  padding: 60px;
+  font-size: 20px;
+  color: #777;
+}
+.container {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+.detailItem {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px;
+  border-radius: 12px;
+  width: 100%;
+  word-break: break-word;
+}
+
+.icon {
+  color: #555;
+  font-size: 18px;
+}
+
+/* 3-layer grid structure */
+@media (min-width: 768px) {
+  .details {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 767px) {
+  .details {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+.loading {
+  text-align: center;
+  padding: 100px 0;
+  font-size: 20px;
+  color: #888;
+}
+
+.title {
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+
+.price {
+  font-size: 22px;
+  font-weight: bold;
+  margin-bottom: 12px;
+}
+
+.description {
+  font-size: 16px;
+  color: #666;
+}
+.prices {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  width: max-content;
+}
+.price_secondary {
+  font-size: 16px;
+  color: #6688a7;
+  margin: 0;
+}
+@media (max-width: 1024px) {
+  .carousel {
+    min-width: 100%;
+    height: auto;
+  }
+
+  .homeImage {
+    height: 350px;
+  }
+
+  .topSection {
+    flex-direction: column;
+    padding: 0 10px;
+  }
+
+  .infoBlock {
+    min-width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+  }
+
+  .details {
+    width: 100%;
+    padding: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
+
+  .detailItem {
+    padding: 8px 6px;
+  }
+}
+
+@media (max-width: 600px) {
+  .homeImage {
+    height: 250px;
+    margin-top: 100px;
+  }
+
+  .title {
+    font-size: 24px;
+  }
+
+  .price {
+    font-size: 18px;
+  }
+
+  .description {
+    font-size: 14px;
+  }
+
+  .details {
+    grid-template-columns: 1fr;
+    padding: 10px;
+  }
+
+  .detailItem {
+    font-size: 14px;
+    gap: 6px;
+    padding: 6px 4px;
+  }
+
+  .hotHomesSection h3 {
+    font-size: 22px;
+  }
+
+  .hotHomesGrid {
+    gap: 16px;
+  }
+}

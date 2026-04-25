@@ -1,0 +1,514 @@
+body {
+  font-family: "Roboto", sans-serif;
+}
+
+.container {
+  margin-left: 80px;
+}
+.mainContainer{
+  display: flex;
+}
+.title {
+  font-family: "Roboto", sans-serif;
+  font-size: 60px;
+  font-weight: bold;
+}
+
+.inputContainer {
+  width: 100%;
+  height: 100px;
+  display: flex;
+  align-items: center;
+}
+
+.dropDown {
+  width: 220px;
+  height: 70px;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.input {
+  width: 750px;
+  height: 68px;
+  outline: none;
+  border: none;
+  background-color: white;
+}
+
+.search {
+  width: 70px;
+  height: 70px;
+  background-color: rgba(1, 12, 91, 1);
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.locationIconContainer {
+  position: absolute;
+  margin-left: 20px;
+}
+
+.dropDownTxt {
+  font-size: 14px;
+  color: rgba(112, 112, 112, 1);
+  font-weight: 600;
+}
+
+.dropDownArrow {
+  position: absolute;
+  margin-left: 160px;
+  margin-top: 7px;
+}
+
+.horizontalLine {
+  position: absolute;
+  margin-left: 180px;
+}
+
+.filterIcon {
+  position: absolute;
+  right: 180px;
+}
+
+.resultsContainer {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.dateDropDown {
+  width: 121px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  border: 1px solid rgba(1, 12, 91, 1);
+  border-radius: 50px;
+  margin-right: 60px;
+}
+
+.title {
+  font-size: 20px;
+  color: rgba(5, 0, 78, 1);
+  font-weight: 600;
+}
+
+.description {
+  font-size: 16px;
+  font-weight: 300;
+  color: rgba(123, 145, 176, 1);
+  margin-top: 15px;
+}
+
+.results {
+  width: 80%;
+  margin-top: 15px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+.mainDiv {
+  display: flex;
+}
+
+.bigDiv {
+  width: 30%;
+  height: 520px;
+  background-color: white;
+  margin-right: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 30px;
+  border-radius: 30px;
+}
+
+.img {
+  width: 216px;
+  height: 250px;
+  border-radius: 20px;
+  margin-top: 30px;
+}
+
+.titleTxt {
+  font-size: 30px;
+}
+
+.txt {
+  margin-top: 20px;
+}
+
+.result2 {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  height: 200px;
+  margin-top: 20px;
+  gap: 20px;
+}
+
+.footer {
+  width: 100%;
+  height: 100px;
+  margin-top: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 40px;
+  color: rgba(0, 0, 0, 0.87);
+  font-size: 14px;
+}
+
+.filterContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 100px;
+  width: 250px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  border-radius: 20px;
+  padding: 20px;
+}
+
+.filters {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+  gap: 20px;
+}
+
+.filterBox {
+  width: 200px;
+  min-height: 50px;
+  border: 1px solid rgba(241, 241, 242, 1);
+  border-radius: 15px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+}
+
+.filterTitle {
+  width: 180px;
+  min-height: 44px;
+  background-color: rgba(240, 242, 254, 1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 10px;
+  font-weight: 600;
+  color: rgba(1, 12, 91, 1);
+  cursor: pointer;
+  padding: 0 12px;
+  user-select: none;
+}
+
+.filterArrow {
+  transition: transform 0.2s ease;
+}
+
+.filterArrowOpen {
+  transform: rotate(180deg);
+}
+
+.filterOptions {
+  overflow-y: auto;
+  max-height: 0;
+  transition: max-height 0.3s ease;
+  width: 100%;
+  padding-right: 4px;
+}
+
+.filterOptions::-webkit-scrollbar {
+  width: 6px;
+}
+
+.filterOptions::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 3px;
+}
+
+.filterOptionsOpen {
+  max-height: 200px;
+}
+
+.filterItemContainer {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 10px;
+  width: 100%;
+  cursor: pointer;
+}
+
+.filterItemContainer:hover {
+  background-color: rgba(240, 242, 254, 0.6);
+  border-radius: 8px;
+}
+
+.radioInput,
+.radioInputSelected {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.radioInput {
+  border: 1px solid rgba(228, 229, 232, 1);
+}
+
+.radioInputSelected {
+  border: 1px solid rgba(1, 12, 91, 1);
+}
+
+.radioSelected {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: rgba(1, 12, 91, 1);
+}
+
+.checkbox,
+.checkboxChecked {
+  width: 15px;
+  height: 15px;
+  border: 1px solid rgba(228, 229, 232, 1);
+}
+
+.checkboxChecked {
+  background-color: rgba(1, 12, 91, 1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.clearTxt {
+  color: rgba(1, 12, 91, 1);
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  margin-top: 10px;
+}
+
+.priceFilter {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.priceFilter label {
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.priceInputs {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.priceInputs input {
+  padding: 10px 14px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.priceInputs input:focus {
+  border-color: #007bff;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0 20px 0;
+  gap: 8px;
+}
+
+.pageButton {
+  padding: 6px 12px;
+  border: 1px solid #ccc;
+  background: white;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.activePage {
+  background: #395fa0;
+  color: white;
+  border-radius: 4px;
+  padding: 6px 12px;
+  border: none;
+}
+
+.homesWrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.homesContainer {
+  margin-top: 100px;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+.paginationWrapper {
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.emptyState {
+  margin-top: 200px;
+}
+
+@media (max-width: 1024px) {
+  .container {
+    margin-left: 20px;
+  }
+
+  .title {
+    font-size: 48px;
+  }
+
+  .input {
+    width: 100%;
+  }
+
+  .inputContainer {
+    height: auto;
+    flex-wrap: wrap;
+  }
+
+  .dropDown {
+    width: 180px;
+    height: 60px;
+    border-radius: 20px 0 0 20px;
+  }
+
+  .search {
+    width: 60px;
+    height: 60px;
+    border-radius: 0 20px 20px 0;
+  }
+
+  .results {
+    width: 100%;
+    gap: 20px;
+  }
+
+  .bigDiv {
+    width: 45%;
+    height: auto;
+    margin-right: 20px;
+    padding: 20px;
+  }
+
+  .img {
+    width: 180px;
+    height: 210px;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    margin-left: 10px;
+  }
+
+  .title {
+    font-size: 36px;
+  }
+
+  .inputContainer {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .dropDown,
+  .input,
+  .search {
+    width: 100%;
+    border-radius: 20px !important;
+    margin-bottom: 10px;
+    height: 60px;
+  }
+
+  .results {
+    width: 100%;
+    gap: 15px;
+  }
+
+  .bigDiv {
+    width: 100%;
+    margin-right: 0;
+    padding: 20px;
+    height: auto;
+  }
+
+  .img {
+    width: 100%;
+    height: auto;
+  }
+
+  .footer {
+    justify-content: center;
+    gap: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .mainContainer{
+    display: flex;
+    margin-top: 100px;
+    flex-direction: column;
+    width: 400px;
+  }
+  .title {
+    font-size: 28px;
+  }
+
+  .description {
+    font-size: 14px;
+  }
+
+  .filterContainer {
+    width: 100%;
+    margin-top: 60px;
+    padding: 15px;
+  }
+
+  .filterBox {
+    width: 100%;
+  }
+
+  .priceFilter {
+    margin-top: 15px;
+  }
+
+  .paginationWrapper {
+    margin-top: 20px;
+  }
+}

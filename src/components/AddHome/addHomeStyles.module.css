@@ -1,0 +1,132 @@
+.formContainer {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  max-width: 1000px;
+  margin: auto;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  gap: 10px;
+}
+
+.gridTwo {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.inputDiv {
+  display: flex;
+  flex-direction: column;
+}
+
+.inputDiv label {
+  font-weight: 500;
+  margin-bottom: 4px;
+}
+
+.inputDiv input,
+.inputDiv select,
+.inputDiv textarea {
+  font-family: "Roboto", sans-serif;
+  padding: 10px 14px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 14px;
+  resize: none;
+}
+
+.errorText {
+  font-family: "Roboto", sans-serif;
+  color: red;
+  font-size: 12px;
+  margin-top: 4px;
+}
+
+.imageUploadSection {
+  margin-top: 20px;
+}
+
+.previewContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.previewImage {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.buttonAdd {
+  margin-top: 30px;
+  padding: 12px 24px;
+  background-color: #7c5cfc;
+  color: white;
+  font-weight: bold;
+  font-size: 16px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  align-self: flex-end;
+  font-family: "Roboto", sans-serif;
+}
+.buttonAdd:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+  opacity: 0.7;
+  font-family: "Roboto", sans-serif;
+}
+
+@media (max-width: 768px) {
+  .formContainer {
+    padding: 15px;
+    max-width: 90%;
+  }
+
+  .gridTwo {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  .previewImage {
+    width: 80px;
+    height: 80px;
+  }
+
+  .buttonAdd {
+    width: 100%;
+    padding: 14px 0;
+    font-size: 18px;
+    align-self: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .formContainer {
+    padding: 12px;
+    max-width: 100%;
+  }
+
+  .inputDiv input,
+  .inputDiv select,
+  .inputDiv textarea {
+    font-size: 13px;
+    padding: 8px 12px;
+  }
+
+  .previewImage {
+    width: 70px;
+    height: 70px;
+  }
+
+  .buttonAdd {
+    font-size: 16px;
+    padding: 12px 0;
+  }
+}

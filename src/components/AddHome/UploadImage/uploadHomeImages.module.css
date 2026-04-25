@@ -1,0 +1,118 @@
+.imagebackground {
+  background: #f7f7f7;
+  min-height: 100vh;
+  padding: 2rem;
+}
+
+.container {
+  max-width: 600px;
+  margin: auto;
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.error {
+  color: red;
+  font-family: "Roboto", sans-serif;
+  margin-bottom: 1rem;
+}
+
+.previewGrid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.previewItem {
+  position: relative;
+}
+
+.previewItem img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+.previewItem button {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background: red;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  width: 24px;
+  height: 24px;
+}
+
+.uploadButton {
+  margin-top: 1.5rem;
+  padding: 0.75rem 1.5rem;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .imagebackground {
+    padding: 1.5rem;
+  }
+
+  .container {
+    max-width: 90%;
+    padding: 1.5rem;
+  }
+
+  .previewItem img {
+    width: 80px;
+    height: 80px;
+  }
+
+  .previewItem button {
+    width: 20px;
+    height: 20px;
+    top: -6px;
+    right: -6px;
+  }
+
+  .uploadButton {
+    width: 100%;
+    padding: 1rem 0;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .imagebackground {
+    padding: 1rem;
+  }
+
+  .container {
+    max-width: 100%;
+    padding: 1rem;
+  }
+
+  .previewItem img {
+    width: 70px;
+    height: 70px;
+  }
+
+  .previewItem button {
+    width: 18px;
+    height: 18px;
+    top: -5px;
+    right: -5px;
+  }
+
+  .uploadButton {
+    font-size: 0.9rem;
+    padding: 0.75rem 0;
+  }
+}
