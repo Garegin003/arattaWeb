@@ -1,0 +1,188 @@
+{
+  "location_hierarchy": {
+    "LocationType": {
+      "ARMENIAN": {
+        "display": "Հայաստան",
+        "enum_value": "Հայաստան",
+        "regions": {
+          "YEREVAN": {
+            "display": "Երևան",
+            "enum_value": "Երևան",
+            "cities": [{ "display": "Երևան", "enum_value": "Երևան" }]
+          },
+          "Արագածոտնի մարզ": {
+            "display": "Արագածոտնի մարզ",
+            "enum_value": "Արագածոտնի մարզ",
+            "cities": [
+              { "display": "Աշտարակ", "enum_value": "Աշտարակ" },
+              { "display": "Ապարան", "enum_value": "Ապարան" },
+              { "display": "Թալին", "enum_value": "Թալին" }
+            ]
+          },
+          "Արարատի մարզ": {
+            "display": "Արարատի մարզ",
+            "enum_value": "Արարատի մարզ",
+            "cities": [
+              { "display": "Արտաշատ", "enum_value": "Արտաշատ" },
+              { "display": "Մասիս", "enum_value": "Մասիս" },
+              { "display": "Վեդի", "enum_value": "Վեդի" }
+            ]
+          },
+          "Արմավիրի մարզ": {
+            "display": "Արմավիրի մարզ",
+            "enum_value": "Արմավիրի մարզ",
+            "cities": [
+              { "display": "Արմավիր", "enum_value": "Արմավիր" },
+              { "display": "Էջմիածին", "enum_value": "Էջմիածին" },
+              { "display": "Մեծամոր", "enum_value": "Մեծամոր" }
+            ]
+          },
+          "Գեղարքունիքի մարզ": {
+            "display": "Գեղարքունիքի մարզ",
+            "enum_value": "Գեղարքունիքի մարզ",
+            "cities": [
+              { "display": "Գավառ", "enum_value": "Գավառ" },
+              { "display": "Սևան", "enum_value": "Սևան" },
+              { "display": "Մարտունի", "enum_value": "Մարտունի" },
+              { "display": "Վարդենիս", "enum_value": "Վարդենիս" }
+            ]
+          },
+          "Լոռու մարզ": {
+            "display": "Լոռու մարզ",
+            "enum_value": "Լոռու մարզ",
+            "cities": [
+              { "display": "Վանաձոր", "enum_value": "Վանաձոր" },
+              { "display": "Ալավերդի", "enum_value": "Ալավերդի" },
+              { "display": "Ստեփանավան", "enum_value": "Ստեփանավան" },
+              { "display": "Տաշիր", "enum_value": "Տաշիր" },
+              { "display": "Սպիտակ", "enum_value": "Սպիտակ" }
+            ]
+          },
+          "Կոտայքի մարզ": {
+            "display": "Կոտայքի մարզ",
+            "enum_value": "Կոտայքի մարզ",
+            "cities": [
+              { "display": "Հրազդան", "enum_value": "Հրազդան" },
+              { "display": "Աբովյան", "enum_value": "Աբովյան" },
+              { "display": "Չարենցավան", "enum_value": "Չարենցավան" },
+              { "display": "Նոր Հաճն", "enum_value": "Նոր Հաճն" },
+              { "display": "Եղվարդ", "enum_value": "Եղվարդ" },
+              { "display": "Բյուրեղավան", "enum_value": "Բյուրեղավան" }
+            ]
+          },
+          "Շիրակի մարզ": {
+            "display": "Շիրակի մարզ",
+            "enum_value": "Շիրակի մարզ",
+            "cities": [
+              { "display": "Գյումրի", "enum_value": "Գյումրի" },
+              { "display": "Արթիկ", "enum_value": "Արթիկ" },
+              { "display": "Մարալիկ", "enum_value": "Մարալիկ" }
+            ]
+          },
+          "Սյունիքի մարզ": {
+            "display": "Սյունիքի մարզ",
+            "enum_value": "Սյունիքի մարզ",
+            "cities": [
+              { "display": "Կապան", "enum_value": "Կապան" },
+              { "display": "Գորիս", "enum_value": "Գորիս" },
+              { "display": "Մեղրի", "enum_value": "Մեղրի" },
+              { "display": "Սիսիան", "enum_value": "Սիսիան" },
+              { "display": "Ագարակ", "enum_value": "Ագարակ" },
+              { "display": "Դաստակերտ", "enum_value": "Դաստակերտ" }
+            ]
+          },
+          "Տավուշի մարզ": {
+            "display": "Տավուշի մարզ",
+            "enum_value": "Տավուշի մարզ",
+            "cities": [
+              { "display": "Իջևան", "enum_value": "Իջևան" },
+              { "display": "Բերդ", "enum_value": "Բերդ" },
+              { "display": "Նոյեմբերյան", "enum_value": "Նոյեմբերյան" },
+              { "display": "Դիլիջան", "enum_value": "Դիլիջան" }
+            ]
+          },
+          "Վայոց Ձորի մարզ": {
+            "display": "Վայոց Ձորի մարզ",
+            "enum_value": "Վայոց Ձորի մարզ",
+            "cities": [
+              { "display": "Եղեգնաձոր", "enum_value": "Եղեգնաձոր" },
+              { "display": "Վայք", "enum_value": "Վայք" },
+              { "display": "Ջերմուկ", "enum_value": "Ջերմուկ" }
+            ]
+          }
+        }
+      },
+      "FOREIGN": {
+        "display": "Արտերկիր",
+        "enum_value": "Արտերկիր",
+        "world_regions": {
+          "Եվրոպա": {
+            "display": "Եվրոպա",
+            "enum_value": "Եվրոպա",
+            "countries": [
+              { "display": "Ալբանիա", "enum_value": "Ալբանիա" },
+              { "display": "Անդորրա", "enum_value": "Անդորրա" },
+              { "display": "Անգլիա", "enum_value": "Անգլիա" },
+              { "display": "Ավստրիա", "enum_value": "Ավստրիա" },
+              { "display": "Բելառուս", "enum_value": "Բելառուս" },
+              { "display": "Բելգիա", "enum_value": "Բելգիա" },
+              {
+                "display": "Բոսնիա և Հերցեգովինա",
+                "enum_value": "Բոսնիա և Հերցեգովինա"
+              },
+              { "display": "Բուլղարիա", "enum_value": "Բուլղարիա" },
+              { "display": "Վատիկան", "enum_value": "Վատիկան" },
+              { "display": "Գերմանիա", "enum_value": "Գերմանիա" },
+              { "display": "Դանիա", "enum_value": "Դանիա" },
+              { "display": "Էստոնիա", "enum_value": "Էստոնիա" },
+              { "display": "Իռլանդիա", "enum_value": "Իռլանդիա" },
+              { "display": "Իսլանդիա", "enum_value": "Իսլանդիա" },
+              { "display": "Իսպանիա", "enum_value": "Իսպանիա" },
+              { "display": "Իտալիա", "enum_value": "Իտալիա" },
+              { "display": "Կիպրոս", "enum_value": "Կիպրոս" },
+              { "display": "Լատվիա", "enum_value": "Լատվիա" },
+              { "display": "Լիխտենշտեյն", "enum_value": "Լիխտենշտեյն" },
+              { "display": "Լիտվա", "enum_value": "Լիտվա" },
+              { "display": "Լյուքսեմբուրգ", "enum_value": "Լյուքսեմբուրգ" },
+              { "display": "Մակեդոնիա", "enum_value": "Մակեդոնիա" },
+              { "display": "Մալթա", "enum_value": "Մալթա" },
+              { "display": "Մոլդովա", "enum_value": "Մոլդովա" },
+              { "display": "Մոնակո", "enum_value": "Մոնակո" },
+              { "display": "Մոնտենեգրո", "enum_value": "Մոնտենեգրո" },
+              { "display": "Նորվեգիա", "enum_value": "Նորվեգիա" },
+              { "display": "Նիդերլանդներ", "enum_value": "Նիդերլանդներ" },
+              { "display": "Լեհաստան", "enum_value": "Լեհաստան" },
+              { "display": "Պորտուգալիա", "enum_value": "Պորտուգալիա" },
+              { "display": "Ռումինիա", "enum_value": "Ռումինիա" },
+              { "display": "Ռուսաստան", "enum_value": "Ռուսաստան" },
+              { "display": "Սան Մարինո", "enum_value": "Սան Մարինո" },
+              { "display": "Սերբիա", "enum_value": "Սերբիա" },
+              { "display": "Սլովակիա", "enum_value": "Սլովակիա" },
+              { "display": "Սլովենիա", "enum_value": "Սլովենիա" },
+              { "display": "Ֆինլանդիա", "enum_value": "Ֆինլանդիա" },
+              { "display": "Ֆրանսիա", "enum_value": "Ֆրանսիա" },
+              { "display": "Խորվաթիա", "enum_value": "Խորվաթիա" },
+              { "display": "Չեխիա", "enum_value": "Չեխիա" },
+              { "display": "Շվեդիա", "enum_value": "Շվեդիա" },
+              { "display": "Շվեյցարիա", "enum_value": "Շվեյցարիա" },
+              { "display": "Ուկրաինիա", "enum_value": "Ուկրաինիա" },
+              { "display": "Հունաստան", "enum_value": "Հունաստան" },
+              { "display": "Հունգարիա", "enum_value": "Հունգարիա" }
+            ]
+          },
+          "Ասիա": {
+            "display": "Ասիա",
+            "enum_value": "Ասիա",
+            "countries": [
+              { "display": "Վրաստան", "enum_value": "Վրաստան" },
+              {
+                "display": "Արաբական Միացյալ Էմիրություններ",
+                "enum_value": "Արաբական Միացյալ Էմիրություններ"
+              }
+            ]
+          }
+        }
+      }
+    }
+  }
+}

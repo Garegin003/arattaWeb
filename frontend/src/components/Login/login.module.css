@@ -1,0 +1,66 @@
+body {
+  padding: 0;
+  margin: 0;
+}
+.imagebackground {
+  width: 100%;
+  height: 100vh;
+  background-image: url("../../assets/Login2.png");
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.input {
+  display: flex;
+  justify-content: flex-start;
+  width: 643px;
+  height: 61px;
+  background-color: #f0efff;
+  margin-top: 20px;
+  border-radius: 8px;
+  padding: 0px 16px;
+  box-sizing: border-box;
+  border: 1px solid #a7a3ff;
+  outline: none;
+  position: relative;
+}
+.input::placeholder {
+  color: #a7a3ff;
+  position: relative;
+}
+.passwordIcon {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  /* bottom: 360px; */
+  /* right: 420px; */
+}
+.loginButton {
+  width: 643px;
+  height: 61px;
+  background-color: #4141bf;
+  color: white;
+  margin-top: 70px;
+  border: none;
+  border-radius: 12px;
+  font-size: 20px;
+  box-shadow: 0.6px 0.5px #4141bf;
+}
+
+/* .image{
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+} */
+.errorTxt {
+  color: red;
+  font-size: 12px;
+}
+.loginButton:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+  opacity: 0.7;
+}

@@ -1,0 +1,292 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 80px;
+  padding: 60px 20px;
+  background-color: #fafafa;
+}
+
+.card {
+  background: #fff;
+  border-radius: 16px;
+  padding: 60px 40px;
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.08);
+  text-align: center;
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+.heading {
+  font-size: 44px;
+  color: #222;
+  font-weight: 700;
+  margin-bottom: 25px;
+  position: relative;
+}
+
+.heading::after {
+  content: "";
+  display: block;
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(90deg, #ff6600, #ffcc00);
+  margin: 12px auto 0;
+  border-radius: 2px;
+}
+
+.subheading {
+  font-size: 32px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 50px;
+}
+
+.text {
+  font-size: 18px;
+  line-height: 1.8;
+  color: #555;
+  max-width: 950px;
+  margin: 0 auto;
+}
+
+.employees {
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+  flex-wrap: wrap;
+}
+
+.employeeCard {
+  background: #fff;
+  border-radius: 18px;
+  padding: 30px 25px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-align: center;
+  flex: 0 0 auto;
+  width: 240px;
+  height: 320px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.employeeCard:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+}
+
+.image {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 5px solid #fff;
+  margin-bottom: 18px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+.name {
+  font-size: 19px;
+  font-weight: 700;
+  color: #222;
+  margin-top: 12px;
+}
+
+.positionTxt {
+  font-size: 15px;
+  color: #777;
+}
+
+.partnersWrapper {
+  display: flex;
+  gap: 50px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding-bottom: 12px;
+}
+
+.partnersWrapper::-webkit-scrollbar {
+  display: none;
+}
+
+.partnerLogo {
+  flex: 0 0 calc(33.33% - 33px);
+  max-width: 340px;
+  height: 170px;
+  object-fit: contain;
+  scroll-snap-align: center;
+  background: #fff;
+  border-radius: 14px;
+  padding: 25px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+  transition: transform 0.3s ease;
+}
+
+.partnerLogo:hover {
+  transform: scale(1.05);
+}
+
+/* 🖥 Large Laptop (≤1200px) */
+@media (max-width: 1200px) {
+  .container {
+    padding: 50px 15px;
+    gap: 60px;
+  }
+
+  .card {
+    padding: 50px 30px;
+    max-width: 95%;
+  }
+
+  .subheading {
+    font-size: 28px;
+    margin-bottom: 40px;
+  }
+
+  .partnersWrapper {
+    gap: 40px;
+  }
+
+  .partnerLogo {
+    flex: 0 0 calc(33.33% - 20px);
+    max-width: 300px;
+    height: 150px;
+  }
+}
+
+/* 📱 Tablet Landscape (≤992px) */
+@media (max-width: 992px) {
+  .heading {
+    font-size: 36px;
+    margin-bottom: 20px;
+  }
+
+  .subheading {
+    font-size: 26px;
+    margin-bottom: 35px;
+  }
+
+  .employeeCard {
+    width: 200px;
+    height: 280px;
+  }
+
+  .image {
+    width: 160px;
+    height: 160px;
+  }
+
+  .partnersWrapper {
+    gap: 30px;
+  }
+
+  .partnerLogo {
+    flex: 0 0 calc(50% - 15px); /* 2 logos visible */
+    max-width: 260px;
+    height: 130px;
+    padding: 20px;
+  }
+}
+
+/* 📱 Tablet Portrait (≤768px) */
+@media (max-width: 768px) {
+  .container {
+    padding: 40px 10px;
+    gap: 50px;
+  }
+
+  .heading {
+    font-size: 30px;
+  }
+
+  .subheading {
+    font-size: 24px;
+    margin-bottom: 25px;
+  }
+
+  .employeeCard {
+    width: 180px;
+    height: 260px;
+  }
+
+  .image {
+    width: 140px;
+    height: 140px;
+  }
+
+  .partnersWrapper {
+    gap: 20px;
+  }
+
+  .partnerLogo {
+    flex: 0 0 70%;
+    max-width: 220px;
+    height: 120px;
+  }
+}
+
+/* 📱 Mobile (≤480px) */
+/* 📱 Mobile (≤480px) */
+@media (max-width: 480px) {
+  .container {
+    width: 100%;
+    max-width: 400px;
+    padding: 20px 10px;
+  }
+
+  .card {
+    width: 100%;
+    max-width: 430px;
+    padding: 30px 15px;
+  }
+
+  .heading {
+    font-size: 22px;
+    margin-bottom: 15px;
+  }
+
+  .subheading {
+    font-size: 18px;
+    margin-bottom: 15px;
+  }
+
+  .text {
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  .employeeCard {
+    width: 130px;
+    height: 200px;
+    padding: 10px;
+  }
+
+  .image {
+    width: 100px;
+    height: 100px;
+  }
+
+  .name {
+    font-size: 14px;
+  }
+
+  .positionTxt {
+    font-size: 12px;
+  }
+
+  .employees {
+    gap: 15px;
+  }
+
+  .partnersWrapper {
+    gap: 10px;
+  }
+
+  .partnerLogo {
+    flex: 0 0 80%;
+    max-width: 340px;
+    height: 90px;
+    padding: 8px;
+  }
+}
