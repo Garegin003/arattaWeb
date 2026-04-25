@@ -1,0 +1,15 @@
+{
+  "nav": {
+    "home": "Գլխավոր",
+    "homes": "Տներ",
+    "about": "Մեր մասին"
+  },
+  "header": {
+    "petFriendly": "Pet friendly"
+  },
+  "language": {
+    "arm": "Հայ",
+    "en": "Eng",
+    "ru": "Рус"
+  }
+}

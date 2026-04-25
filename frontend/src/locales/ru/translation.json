@@ -1,0 +1,15 @@
+{
+  "nav": {
+    "home": "Главная",
+    "homes": "Дома",
+    "about": "О нас"
+  },
+  "header": {
+    "petFriendly": "Pet friendly"
+  },
+  "language": {
+    "arm": "Հայ",
+    "en": "Eng",
+    "ru": "Рус"
+  }
+}
