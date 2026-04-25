@@ -11,5 +11,32 @@
     "arm": "Հայ",
     "en": "Eng",
     "ru": "Рус"
+  },
+  "home": {
+  "heroTitle": "Ваш путь к надежной недвижимости и инвестициям"
+},
+"filters": {
+  "placeholders": {
+    "deal": "Тип сделки",
+    "region": "Регион",
+    "type": "Тип недвижимости"
+  },
+  "deal": {
+    "sale": "Продажа",
+    "rent": "Аренда",
+    "longTermRent": "Долгосрочная аренда",
+    "shortTermRent": "Краткосрочная аренда"
+  },
+  "region": {
+    "armenia": "Армения",
+    "abroad": "За рубежом"
+  },
+  "type": {
+    "commercial": "Коммерческая",
+    "summerHouse": "Дача",
+    "apartment": "Квартира",
+    "house": "Дом",
+    "townhouse": "Таунхаус"
   }
+}
 }

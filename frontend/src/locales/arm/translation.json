@@ -7,9 +7,38 @@
   "header": {
     "petFriendly": "Pet friendly"
   },
+  
   "language": {
     "arm": "Հայ",
     "en": "Eng",
     "ru": "Рус"
+  },
+
+  "home": {
+  "heroTitle": "Ձեր ուղին դեպի հուսալի գույք և ներդրումներ"
+},
+"filters": {
+  "placeholders": {
+    "deal": "Գործարքի տեսակ",
+    "region": "Տարածաշրջան",
+    "type": "Գույքի տեսակ"
+  },
+  "deal": {
+    "sale": "Վաճառք",
+    "rent": "Վարձակալություն",
+    "longTermRent": "Երկարաժամկետ վարձակալություն",
+    "shortTermRent": "Կարճաժամկետ վարձակալություն"
+  },
+  "region": {
+    "armenia": "Հայաստան",
+    "abroad": "Արտերկիր"
+  },
+  "type": {
+    "commercial": "Կոմերցիոն",
+    "summerHouse": "Ամառանոց",
+    "apartment": "Բնակարան",
+    "house": "Տուն",
+    "townhouse": "Թաունհաուս"
   }
+}
 }

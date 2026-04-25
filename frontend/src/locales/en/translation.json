@@ -11,5 +11,32 @@
     "arm": "Հայ",
     "en": "Eng",
     "ru": "Рус"
+  },
+  "home": {
+  "heroTitle": "Your path to reliable real estate and investments"
+},
+"filters": {
+  "placeholders": {
+    "deal": "Deal type",
+    "region": "Region",
+    "type": "Property type"
+  },
+  "deal": {
+    "sale": "Sale",
+    "rent": "Rent",
+    "longTermRent": "Long-term rent",
+    "shortTermRent": "Short-term rent"
+  },
+  "region": {
+    "armenia": "Armenia",
+    "abroad": "Abroad"
+  },
+  "type": {
+    "commercial": "Commercial",
+    "summerHouse": "Summer house",
+    "apartment": "Apartment",
+    "house": "House",
+    "townhouse": "Townhouse"
   }
+}
 }
