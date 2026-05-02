@@ -15,6 +15,7 @@
   "home": {
   "heroTitle": "Ваш путь к надежной недвижимости и инвестициям"
 },
+
 "filters": {
   "placeholders": {
     "deal": "Тип сделки",
@@ -38,5 +39,32 @@
     "house": "Дом",
     "townhouse": "Таунхаус"
   }
+},
+
+"admin": {
+  "login": {
+    "title": "Вход",
+    "usernamePlaceholder": "Введите эл. почту или имя пользователя",
+    "passwordPlaceholder": "Введите пароль",
+    "button": "Войти",
+    "loading": "Загрузка..."
+  }
+},
+
+"findHome": {
+  "title": "Фильтры",
+  "clearAll": "Очистить все фильтры",
+  "dealType": "Тип сделки",
+  "propertyType": "Тип недвижимости",
+  "location": "Регион",
+  "rooms": "Количество комнат",
+  "price": "Цена",
+  "priceFrom": "От",
+  "priceTo": "До",
+  "noData": "Данные не найдены...",
+  "region": "Область",
+  "worldRegion": "Часть света",
+  "city": "Город",
+  "country": "Страна"
 }
 }

@@ -47,5 +47,22 @@
     "button": "Login",
     "loading": "Loading..."
   }
+},
+
+"findHome": {
+  "title": "Filters",
+  "clearAll": "Clear all filters",
+  "dealType": "Deal type",
+  "propertyType": "Property type",
+  "location": "Region",
+  "rooms": "Number of rooms",
+  "price": "Price",
+  "priceFrom": "From",
+  "priceTo": "To",
+  "noData": "No results found...",
+  "region": "Region",
+  "worldRegion": "World region",
+  "city": "City",
+  "country": "Country"
 }
 }

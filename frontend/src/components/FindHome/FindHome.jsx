@@ -1,5 +1,8 @@
 import Header from "../Header/Header";
 import { useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
+import { useTranslation } from "react-i18next";
+
 import styles from "./findHome.module.css";
 import { FilterItem } from "./FilterItem";
 import { HomeCard } from "../HomeComponents/seondComponent/components/HomeCard";
@@ -7,9 +10,10 @@ import homes_store from "../../stores/homes_store.js";
 import homesStore from "../../stores/homes_store.js";
 import { Footer } from "../HomeComponents/footer/Footer.jsx";
 import locationHierarchy from "../../stores/regs.json";
-import { useLocation } from "react-router-dom";
 
 const FindHome = () => {
+  const { t } = useTranslation();
+
   const getHomes = homes_store((state) => state.getHomes);
   const homes = homes_store((state) => state.homes);
   const totalCount = homesStore((state) => state.totalCountOfHomes);
@@ -27,16 +31,35 @@ const FindHome = () => {
   const location = useLocation();
   const passedFilters = location.state?.filters || {};
 
-  const filterToEnglish = {
-    Կոմերցիոն: "commercial",
-    Ամառանոց: "cottage",
-    Բնակարան: "apartment",
-    Տուն: "house",
-    Թաունհաուս: "town_house",
-    Վաճառք: "sale",
-    Վարձակալություն: "rent",
-    "Երկարաժամկետ վարձակալություն": "long_rent",
-    "Կարճաժամկետ վարձակալություն": "short_rent",
+  const DEAL_FILTER = "dealType";
+  const PROPERTY_FILTER = "propertyType";
+
+  const dealOptions = [
+    { label: t("filters.deal.sale"), armValue: "Վաճառք", apiValue: "sale" },
+    { label: t("filters.deal.rent"), armValue: "Վարձակալություն", apiValue: "rent" },
+    {
+      label: t("filters.deal.longTermRent"),
+      armValue: "Երկարաժամկետ վարձակալություն",
+      apiValue: "long_rent",
+    },
+    {
+      label: t("filters.deal.shortTermRent"),
+      armValue: "Կարճաժամկետ վարձակալություն",
+      apiValue: "short_rent",
+    },
+  ];
+
+  const propertyOptions = [
+    { label: t("filters.type.commercial"), armValue: "Կոմերցիոն", apiValue: "commercial" },
+    { label: t("filters.type.summerHouse"), armValue: "Ամառանոց", apiValue: "cottage" },
+    { label: t("filters.type.apartment"), armValue: "Բնակարան", apiValue: "apartment" },
+    { label: t("filters.type.house"), armValue: "Տուն", apiValue: "house" },
+    { label: t("filters.type.townhouse"), armValue: "Թաունհաուս", apiValue: "town_house" },
+  ];
+
+  const locationTypeLabels = {
+    Հայաստան: t("filters.region.armenia"),
+    Արտերկիր: t("filters.region.abroad"),
   };
 
   const locationTypes = Object.values(
@@ -45,39 +68,35 @@ const FindHome = () => {
 
   const getFilterParams = () => {
     const params = {};
+
     if (priceRange.from) params.price_min = priceRange.from;
     if (priceRange.to) params.price_max = priceRange.to;
 
     const propertyTypes =
-      selectedFiltersState["Գույքի տեսակ"]?.map(
-        (i) =>
-          filterToEnglish[
-            ["Կոմերցիոն", "Ամառանոց", "Բնակարան", "Տուն", "Թաունհաուս"][i]
-          ]
+      selectedFiltersState[PROPERTY_FILTER]?.map(
+        (i) => propertyOptions[i].apiValue
       ) || [];
 
     const advTypes =
-      selectedFiltersState["Գործարքի տեսակ"]?.map(
-        (i) =>
-          filterToEnglish[
-            [
-              "Վաճառք",
-              "Վարձակալություն",
-              "Երկարաժամկետ վարձակալություն",
-              "Կարճաժամկետ վարձակալություն",
-            ][i]
-          ]
-      ) || [];
+      selectedFiltersState[DEAL_FILTER]?.map((i) => dealOptions[i].apiValue) ||
+      [];
 
-    if (propertyTypes.length > 0)
+    if (propertyTypes.length > 0) {
       params.property_type = propertyTypes.join(",");
-    if (advTypes.length > 0) params.adv_type = advTypes.join(",");
+    }
+
+    if (advTypes.length > 0) {
+      params.adv_type = advTypes.join(",");
+    }
+
     if (rooms) params.rooms = rooms;
     if (locationType) params.location_type = locationType;
+
     if (locationType === "Հայաստան") {
       if (subLocation) params.armenian_region = subLocation;
       if (finalLocation) params.armenian_city = finalLocation;
     }
+
     if (locationType === "Արտերկիր") {
       if (subLocation) params.world_region = subLocation;
       if (finalLocation) params.foreign_country = finalLocation;
@@ -86,34 +105,34 @@ const FindHome = () => {
     return params;
   };
 
-  // 1️⃣ On mount, apply passed filters (runs only once)
   useEffect(() => {
     if (!passedFilters || initializedFromPassed) return;
 
     const newFilters = {};
 
     if (passedFilters.deal) {
-      const dealIndex = [
-        "Վաճառք",
-        "Վարձակալություն",
-        "Երկարաժամկետ վարձակալություն",
-        "Կարճաժամկետ վարձակալություն",
-      ].indexOf(passedFilters.deal);
+      const dealIndex = dealOptions.findIndex(
+        (item) =>
+          item.armValue === passedFilters.deal ||
+          item.apiValue === passedFilters.deal ||
+          item.label === passedFilters.deal
+      );
+
       if (dealIndex >= 0) {
-        newFilters["Գործարքի տեսակ"] = [dealIndex];
+        newFilters[DEAL_FILTER] = [dealIndex];
       }
     }
 
     if (passedFilters.type) {
-      const typeIndex = [
-        "Կոմերցիոն",
-        "Ամառանոց",
-        "Բնակարան",
-        "Տուն",
-        "Թաունհաուս",
-      ].indexOf(passedFilters.type);
+      const typeIndex = propertyOptions.findIndex(
+        (item) =>
+          item.armValue === passedFilters.type ||
+          item.apiValue === passedFilters.type ||
+          item.label === passedFilters.type
+      );
+
       if (typeIndex >= 0) {
-        newFilters["Գույքի տեսակ"] = [typeIndex];
+        newFilters[PROPERTY_FILTER] = [typeIndex];
       }
     }
 
@@ -121,6 +140,7 @@ const FindHome = () => {
       const regionIndex = ["Հայաստան", "Արտերկիր"].indexOf(
         passedFilters.region
       );
+
       if (regionIndex >= 0) {
         setLocationType(["Հայաստան", "Արտերկիր"][regionIndex]);
       }
@@ -130,7 +150,6 @@ const FindHome = () => {
     setInitializedFromPassed(true);
   }, [passedFilters, initializedFromPassed]);
 
-  // 2️⃣ Fetch homes when filters change
   useEffect(() => {
     if (
       initializedFromPassed &&
@@ -183,258 +202,262 @@ const FindHome = () => {
     <>
       <div>
         <Header />
+
         <div className={styles.mainContainer}>
-        <div className={styles.filterContainer}>
-          <h1 className={styles.title}>Ֆիլտրեր</h1>
-          <p onClick={handleClearFilter} className={styles.clearTxt}>
-            Մաքրել բոլոր ֆիլտրերը
-          </p>
+          <div className={styles.filterContainer}>
+            <h1 className={styles.title}>{t("findHome.title")}</h1>
 
-          <div className={styles.filters}>
-            <FilterItem
-              title="Գործարքի տեսակ"
-              options={[
-                "Վաճառք",
-                "Վարձակալություն",
-                "Երկարաժամկետ վարձակալություն",
-                "Կարճաժամկետ վարձակալություն",
-              ]}
-              selectedIndexes={selectedFiltersState["Գործարքի տեսակ"] || []}
-              onSelect={(index) =>
-                handleFilterSelection("Գործարքի տեսակ", index)
-              }
-            />
+            <p onClick={handleClearFilter} className={styles.clearTxt}>
+              {t("findHome.clearAll")}
+            </p>
 
-            <FilterItem
-              title="Գույքի տեսակ"
-              options={[
-                "Կոմերցիոն",
-                "Ամառանոց",
-                "Բնակարան",
-                "Տուն",
-                "Թաունհաուս",
-              ]}
-              selectedIndexes={selectedFiltersState["Գույքի տեսակ"] || []}
-              onSelect={(index) => handleFilterSelection("Գույքի տեսակ", index)}
-            />
-
-            <FilterItem
-              title="Տարածաշրջան"
-              options={locationTypes.map((l) => l.display)}
-              selectedIndexes={
-                locationType
-                  ? [
-                      locationTypes.findIndex(
-                        (l) => l.enum_value === locationType
-                      ),
-                    ]
-                  : []
-              }
-              onSelect={(index) => {
-                const selected = locationTypes[index];
-                setLocationType(selected.enum_value);
-                setSubLocation(null);
-                setFinalLocation(null);
-              }}
-            />
-
-            {/* Armenian Region */}
-            {locationType === "Հայաստան" && (
+            <div className={styles.filters}>
               <FilterItem
-                title="Մարզ"
-                options={Object.values(
-                  locationTypes.find((l) => l.enum_value === "Հայաստան").regions
-                ).map((r) => r.display)}
+                title={t("findHome.dealType")}
+                options={dealOptions.map((item) => item.label)}
+                selectedIndexes={selectedFiltersState[DEAL_FILTER] || []}
+                onSelect={(index) => handleFilterSelection(DEAL_FILTER, index)}
+              />
+
+              <FilterItem
+                title={t("findHome.propertyType")}
+                options={propertyOptions.map((item) => item.label)}
+                selectedIndexes={selectedFiltersState[PROPERTY_FILTER] || []}
+                onSelect={(index) =>
+                  handleFilterSelection(PROPERTY_FILTER, index)
+                }
+              />
+
+              <FilterItem
+                title={t("findHome.location")}
+                options={locationTypes.map(
+                  (l) => locationTypeLabels[l.enum_value] || l.display
+                )}
                 selectedIndexes={
-                  subLocation
+                  locationType
                     ? [
-                        Object.values(
-                          locationTypes.find((l) => l.enum_value === "Հայաստան")
-                            .regions
-                        ).findIndex((r) => r.enum_value === subLocation),
+                        locationTypes.findIndex(
+                          (l) => l.enum_value === locationType
+                        ),
                       ]
                     : []
                 }
                 onSelect={(index) => {
-                  const selectedRegion = Object.values(
-                    locationTypes.find((l) => l.enum_value === "Հայաստան")
-                      .regions
-                  )[index];
-                  setSubLocation(selectedRegion.enum_value);
+                  const selected = locationTypes[index];
+                  setLocationType(selected.enum_value);
+                  setSubLocation(null);
                   setFinalLocation(null);
                 }}
               />
-            )}
 
-            {/* Foreign Region */}
-            {locationType === "Արտերկիր" && (
-              <FilterItem
-                title="Աշխարհամաս"
-                options={Object.values(
-                  locationTypes.find((l) => l.enum_value === "Արտերկիր")
-                    .world_regions
-                ).map((r) => r.display)}
-                selectedIndexes={
-                  subLocation
-                    ? [
-                        Object.values(
-                          locationTypes.find((l) => l.enum_value === "Արտերկիր")
-                            .world_regions
-                        ).findIndex((r) => r.enum_value === subLocation),
-                      ]
-                    : []
-                }
-                onSelect={(index) => {
-                  const selectedContinent = Object.values(
-                    locationTypes.find((l) => l.enum_value === "Արտերկիր")
-                      .world_regions
-                  )[index];
-                  setSubLocation(selectedContinent.enum_value);
-                  setFinalLocation(null);
-                }}
-              />
-            )}
-
-            {/* Armenian City */}
-            {locationType === "Հայաստան" && subLocation && (
-              <FilterItem
-                title="Քաղաք"
-                options={Object.values(
-                  locationTypes.find((l) => l.enum_value === "Հայաստան").regions
-                )
-                  .find((r) => r.enum_value === subLocation)
-                  .cities.map((c) => c.display)}
-                selectedIndexes={
-                  finalLocation
-                    ? [
-                        Object.values(
-                          locationTypes.find((l) => l.enum_value === "Հայաստան")
-                            .regions
-                        )
-                          .find((r) => r.enum_value === subLocation)
-                          .cities.findIndex(
-                            (c) => c.enum_value === finalLocation
-                          ),
-                      ]
-                    : []
-                }
-                onSelect={(index) => {
-                  const selectedCity = Object.values(
+              {locationType === "Հայաստան" && (
+                <FilterItem
+                  title={t("findHome.region")}
+                  options={Object.values(
                     locationTypes.find((l) => l.enum_value === "Հայաստան")
                       .regions
-                  ).find((r) => r.enum_value === subLocation).cities[index];
-                  setFinalLocation(selectedCity.enum_value);
-                }}
-              />
-            )}
+                  ).map((r) => r.display)}
+                  selectedIndexes={
+                    subLocation
+                      ? [
+                          Object.values(
+                            locationTypes.find(
+                              (l) => l.enum_value === "Հայաստան"
+                            ).regions
+                          ).findIndex((r) => r.enum_value === subLocation),
+                        ]
+                      : []
+                  }
+                  onSelect={(index) => {
+                    const selectedRegion = Object.values(
+                      locationTypes.find((l) => l.enum_value === "Հայաստան")
+                        .regions
+                    )[index];
 
-            {/* Foreign Country */}
-            {locationType === "Արտերկիր" && subLocation && (
-              <FilterItem
-                title="Երկիր"
-                options={Object.values(
-                  locationTypes.find((l) => l.enum_value === "Արտերկիր")
-                    .world_regions
-                )
-                  .find((r) => r.enum_value === subLocation)
-                  .countries.map((c) => c.display)}
-                selectedIndexes={
-                  finalLocation
-                    ? [
-                        Object.values(
-                          locationTypes.find((l) => l.enum_value === "Արտերկիր")
-                            .world_regions
-                        )
-                          .find((r) => r.enum_value === subLocation)
-                          .countries.findIndex(
-                            (c) => c.enum_value === finalLocation
-                          ),
-                      ]
-                    : []
-                }
-                onSelect={(index) => {
-                  const selectedCountry = Object.values(
+                    setSubLocation(selectedRegion.enum_value);
+                    setFinalLocation(null);
+                  }}
+                />
+              )}
+
+              {locationType === "Արտերկիր" && (
+                <FilterItem
+                  title={t("findHome.worldRegion")}
+                  options={Object.values(
                     locationTypes.find((l) => l.enum_value === "Արտերկիր")
                       .world_regions
-                  ).find((r) => r.enum_value === subLocation).countries[index];
-                  setFinalLocation(selectedCountry.enum_value);
-                }}
-              />
-            )}
+                  ).map((r) => r.display)}
+                  selectedIndexes={
+                    subLocation
+                      ? [
+                          Object.values(
+                            locationTypes.find(
+                              (l) => l.enum_value === "Արտերկիր"
+                            ).world_regions
+                          ).findIndex((r) => r.enum_value === subLocation),
+                        ]
+                      : []
+                  }
+                  onSelect={(index) => {
+                    const selectedContinent = Object.values(
+                      locationTypes.find((l) => l.enum_value === "Արտերկիր")
+                        .world_regions
+                    )[index];
 
-            <label>Սենյակների քանակ</label>
-            <div className={styles.priceInputs}>
-              <input
-                type="number"
-                value={rooms || ""}
-                onChange={(e) => setRooms(e.target.value)}
-              />
-            </div>
+                    setSubLocation(selectedContinent.enum_value);
+                    setFinalLocation(null);
+                  }}
+                />
+              )}
 
-            {/* Price */}
-            <div className={styles.priceFilter}>
-              <label>Գին</label>
+              {locationType === "Հայաստան" && subLocation && (
+                <FilterItem
+                  title={t("findHome.city")}
+                  options={Object.values(
+                    locationTypes.find((l) => l.enum_value === "Հայաստան")
+                      .regions
+                  )
+                    .find((r) => r.enum_value === subLocation)
+                    .cities.map((c) => c.display)}
+                  selectedIndexes={
+                    finalLocation
+                      ? [
+                          Object.values(
+                            locationTypes.find(
+                              (l) => l.enum_value === "Հայաստան"
+                            ).regions
+                          )
+                            .find((r) => r.enum_value === subLocation)
+                            .cities.findIndex(
+                              (c) => c.enum_value === finalLocation
+                            ),
+                        ]
+                      : []
+                  }
+                  onSelect={(index) => {
+                    const selectedCity = Object.values(
+                      locationTypes.find((l) => l.enum_value === "Հայաստան")
+                        .regions
+                    ).find((r) => r.enum_value === subLocation).cities[index];
+
+                    setFinalLocation(selectedCity.enum_value);
+                  }}
+                />
+              )}
+
+              {locationType === "Արտերկիր" && subLocation && (
+                <FilterItem
+                  title={t("findHome.country")}
+                  options={Object.values(
+                    locationTypes.find((l) => l.enum_value === "Արտերկիր")
+                      .world_regions
+                  )
+                    .find((r) => r.enum_value === subLocation)
+                    .countries.map((c) => c.display)}
+                  selectedIndexes={
+                    finalLocation
+                      ? [
+                          Object.values(
+                            locationTypes.find(
+                              (l) => l.enum_value === "Արտերկիր"
+                            ).world_regions
+                          )
+                            .find((r) => r.enum_value === subLocation)
+                            .countries.findIndex(
+                              (c) => c.enum_value === finalLocation
+                            ),
+                        ]
+                      : []
+                  }
+                  onSelect={(index) => {
+                    const selectedCountry = Object.values(
+                      locationTypes.find((l) => l.enum_value === "Արտերկիր")
+                        .world_regions
+                    ).find((r) => r.enum_value === subLocation).countries[
+                      index
+                    ];
+
+                    setFinalLocation(selectedCountry.enum_value);
+                  }}
+                />
+              )}
+
+              <label>{t("findHome.rooms")}</label>
+
               <div className={styles.priceInputs}>
                 <input
                   type="number"
-                  placeholder="Սկսած"
-                  value={priceRange.from}
-                  onChange={(e) =>
-                    setPriceRange((prev) => ({
-                      ...prev,
-                      from: e.target.value,
-                    }))
-                  }
+                  value={rooms || ""}
+                  onChange={(e) => setRooms(e.target.value)}
                 />
-                <input
-                  type="number"
-                  placeholder="Մինչև"
-                  value={priceRange.to}
-                  onChange={(e) =>
-                    setPriceRange((prev) => ({
-                      ...prev,
-                      to: e.target.value,
-                    }))
-                  }
-                />
+              </div>
+
+              <div className={styles.priceFilter}>
+                <label>{t("findHome.price")}</label>
+
+                <div className={styles.priceInputs}>
+                  <input
+                    type="number"
+                    placeholder={t("findHome.priceFrom")}
+                    value={priceRange.from}
+                    onChange={(e) =>
+                      setPriceRange((prev) => ({
+                        ...prev,
+                        from: e.target.value,
+                      }))
+                    }
+                  />
+
+                  <input
+                    type="number"
+                    placeholder={t("findHome.priceTo")}
+                    value={priceRange.to}
+                    onChange={(e) =>
+                      setPriceRange((prev) => ({
+                        ...prev,
+                        to: e.target.value,
+                      }))
+                    }
+                  />
+                </div>
               </div>
             </div>
           </div>
-        </div>
 
-        <div className={styles.homesWrapper}>
-          {homes.length > 0 ? (
-            <>
-              <div className={styles.homesContainer}>
-                {homes.map((home) => (
-                  <HomeCard key={home.uuid} home={home} />
-                ))}
-              </div>
-
-              {totalPages > 1 && (
-                <div className={styles.paginationWrapper}>
-                  {Array.from({ length: totalPages }, (_, i) => (
-                    <button
-                      key={i}
-                      className={`${styles.pageButton} ${
-                        currentPage === i + 1 ? styles.activePage : ""
-                      }`}
-                      onClick={() => handlePageChange(i + 1)}
-                    >
-                      {i + 1}
-                    </button>
+          <div className={styles.homesWrapper}>
+            {homes.length > 0 ? (
+              <>
+                <div className={styles.homesContainer}>
+                  {homes.map((home) => (
+                    <HomeCard key={home.uuid} home={home} />
                   ))}
                 </div>
-              )}
-            </>
-          ) : (
-            <div className={styles.emptyState}>
-              <p>Տվյալներ չեն գտնվել...</p>
-            </div>
-          )}
-        </div>
+
+                {totalPages > 1 && (
+                  <div className={styles.paginationWrapper}>
+                    {Array.from({ length: totalPages }, (_, i) => (
+                      <button
+                        key={i}
+                        className={`${styles.pageButton} ${
+                          currentPage === i + 1 ? styles.activePage : ""
+                        }`}
+                        onClick={() => handlePageChange(i + 1)}
+                      >
+                        {i + 1}
+                      </button>
+                    ))}
+                  </div>
+                )}
+              </>
+            ) : (
+              <div className={styles.emptyState}>
+                <p>{t("findHome.noData")}</p>
+              </div>
+            )}
+          </div>
         </div>
       </div>
+
       <Footer />
     </>
   );
