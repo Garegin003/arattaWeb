@@ -40,5 +40,14 @@
     "house": "Տուն",
     "townhouse": "Թաունհաուս"
   }
+},
+"admin": {
+  "login": {
+    "title": "Մուտք",
+    "usernamePlaceholder": "Մուտքագրեք էլ. հասցե կամ օգտանուն",
+    "passwordPlaceholder": "Մուտքագրեք գաղտնաբառ",
+    "button": "Մուտք",
+    "loading": "Բեռնում..."
+  }
 }
 }

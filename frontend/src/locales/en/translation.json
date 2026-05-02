@@ -38,5 +38,14 @@
     "house": "House",
     "townhouse": "Townhouse"
   }
+},
+"admin": {
+  "login": {
+    "title": "Login",
+    "usernamePlaceholder": "Enter email or username",
+    "passwordPlaceholder": "Enter password",
+    "button": "Login",
+    "loading": "Loading..."
+  }
 }
 }
